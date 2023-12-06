@@ -1,0 +1,46 @@
+﻿kind: Namespace
+apiVersion: v1
+metadata:
+  name: tots
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myapp 
+  namespace: tots
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        role: myapp 
+    spec:
+      containers:
+      - name: myapp 
+        image: <IMAGE>
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
+        - name: USER_GITHUB
+          value: "valeriaecheverry21"
+        - name: PERSONAL_ACCESS_TOKEN
+          value: "Z2hwX2RHTjVxc21ZYkRUOEV3aUFSbWUzTWY0dkFJMUpOQTB6Yk9DWQ=="
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+  namespace: tots
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    role: myapp

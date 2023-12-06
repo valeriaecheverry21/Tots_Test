@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TotsChallenge</name>
+    </assembly>
+    <members>
+        <member name="M:TotsChallenge.Controllers.RepoController.CreateRepo(TotsChallenge.Models.Repository)">
+            <summary>
+            Create a new repository. The only parameter is the repository name. The characters limit is until 30. It have special characters will be delete.
+            </summary>
+        </member>
+        <member name="M:TotsChallenge.Controllers.RepoController.DeleteRepo(TotsChallenge.Models.Repository)">
+            <summary>
+            Delete an repository. The only parameter is the new repository name. Only can be delete the repository is template.
+            </summary>
+        </member>
+        <member name="M:TotsChallenge.Controllers.RepoController.ListRepo">
+            <summary>
+            Get all the repository from user's account.
+            </summary>
+        </member>
+        <member name="M:TotsChallenge.Controllers.RepoController.AddNewFileToRepo(TotsChallenge.Models.Repository,TotsChallenge.Models.File)">
+            <summary>
+            Add an new file at the repository.
+            </summary>
+        </member>
+    </members>
+</doc>
